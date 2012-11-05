@@ -92,6 +92,8 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
 
 ## openstackの設定
 
+openstackの設定には、devstackという開発者向けの簡易設定ツールを利用します。
+
 ### devstackのリポジトリ取得
 
     $ cd ~
@@ -145,4 +147,33 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
     $ ./stack.sh
 
 正常に終了すると以下のメッセージが表示されます。
+
+    Horizon is now available at http://192.168.128.100/
+    Keystone is serving at http://192.168.128.100:5000/v2.0/
+    Examples on using novaclient command line is in exercise.sh
+    The default users are: admin and demo
+    The password: openstack
+    This is your host ip: 192.168.128.100
+    stack.sh completed in 1104 seconds.
+
+### 動作確認
+
+ブラウザから仮想マシンのアドレスへアクセスし、OpenStackのログイン画面が表示されるか確認してください。
+
+### OpenStack停止時の注意
+
+OpenStack上で仮想マシンを作成した場合、OpenStack停止(Ubuntuの停止)前に仮想マシンを削除しておいてください。
+
+### Ubuntu再起動後の作業
+
+devstackにはいくつか揮発性の設定が含まれているため、Ubuntuを再起動した場合、以下の設定を手動で行う必要があります。
+
+    $ sudo ip addr add 10.0.0.1/24 dev br-ex
+    $ sudo ip link set br-ex up
+    $ sudo route add -net 172.24.17.0/24 gw 10.0.0.2
+    $ sudo losetup -f --show /opt/stack/data/stack-volumes-backing-file
+
+Ubuntu再起動後にdevstackで作った環境を起動するには以下のコマンド実行します。
+    $ cd ~/devstack
+    $ ./rejoin-stack.sh
 
