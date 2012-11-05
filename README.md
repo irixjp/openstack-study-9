@@ -72,6 +72,10 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
 
 ### アドレスの固定化
 
+ここで固定化するアドレスは以下の要件を満たす様に設定してください。
+* インターネットへアクセス可能
+* ホストマシンからssh/httpでのアクセスが可能
+
     $ sudo vi /etc/network/interfaces
 
     auto eth0
@@ -80,4 +84,65 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
     netmask 255.255.255.0
     gateway 192.168.128.1
     dns-nameservers 192.168.128.1
+
+### git のインストール
+
+    $ sudo apt-get update
+    $ sudo apt-get install -qqy git
+
+## openstackの設定
+
+### devstackのリポジトリ取得
+
+    $ cd ~
+    $ git clone https://github.com/openstack-dev/devstack.git
+    $ cd ~/devstack
+
+    $ git checkout -b folsom remotes/origin/stable/folsom
+
+### devstackの設定
+
+~/devstack/localrc ファイルを作成して、devstackの設定を行います。
+
+    $ vi ~/devstack/localrc
+    ------------------------
+    HOST_IP=192.168.128.100
+
+    ADMIN_PASSWORD=openstack
+    MYSQL_PASSWORD=$ADMIN_PASSWORD
+    RABBIT_PASSWORD=$ADMIN_PASSWORD
+    SERVICE_PASSWORD=$ADMIN_PASSWORD
+    SERVICE_TOKEN=admintoken
+
+    disable_service n-net
+    disable_service n-obj
+    enable_service q-svc
+    enable_service q-agt
+    enable_service q-dhcp
+    enable_service q-l3
+
+    ENABLE_TENANT_TUNNELS=True
+
+    FIXED_RANGE=172.24.17.0/24
+    NETWORK_GATEWAY=172.24.17.254
+    FLOATING_RANGE=10.0.0.0/24
+
+    NOVA_BRANCH=stable/folsom
+    GLANCE_BRANCH=stable/folsom
+    KEYSTONE_BRANCH=stable/folsom
+    HORIZON_BRANCH=stable/folsom
+    CINDER_BRANCH=stable/folsom
+    QUANTUM_BRANCH=stable/folsom
+    ------------------------
+
+* HOST_IP
+    * 固定化したIPアドレスを指定します。
+
+
+### devstackの実行
+
+    $ cd ~/devstack
+    $ ./stack.sh
+
+正常に終了すると以下のメッセージが表示されます。
 
