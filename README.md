@@ -77,6 +77,7 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
 * ホストマシンからssh/httpでのアクセスが可能
 
 以下は設定の一例です。
+
     $ sudo vi /etc/network/interfaces
 
     auto eth0
@@ -175,6 +176,7 @@ devstackにはいくつか揮発性の設定が含まれているため、Ubuntu
     $ sudo losetup -f --show /opt/stack/data/stack-volumes-backing-file
 
 Ubuntu再起動後にdevstackで作った環境を起動するには以下のコマンド実行します。
+
     $ cd ~/devstack
     $ ./rejoin-stack.sh
 
