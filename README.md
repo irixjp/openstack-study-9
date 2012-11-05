@@ -76,6 +76,7 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
 * インターネットへアクセス可能
 * ホストマシンからssh/httpでのアクセスが可能
 
+
     $ sudo vi /etc/network/interfaces
 
     auto eth0
