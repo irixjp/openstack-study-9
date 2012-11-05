@@ -5,6 +5,15 @@
 * https://github.com/irixjp/openstack-study-9/blob/master/README.md
 
 
+## 当日プログラム
+
+|項目|講師|時間|
+|---|---|----|
+|devstackフォロー||30|
+|基本的な使い方||60|
+|休憩|||
+|各コンポーネントの解説|||
+
 ## devstackフォローアップ
 * 上手く設定できなかった向けのフォロー
 
