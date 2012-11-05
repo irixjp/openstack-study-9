@@ -20,6 +20,8 @@ OpenStackのセットアップには多量のパッケージをインターネ�
 * Mem:  2GB以上
 * Disk: 30GB以上
 * NIC:  1個
+    * ブリッジネットワークは「使わない」
+    * 物理ホスト上の内部ネットワークとして構成してください。
 * OS:   Ubuntu Server 12.04 LTS http://www.ubuntu.com/download/server
 
 ## Ubuntuのインストール
