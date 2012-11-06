@@ -8,6 +8,7 @@ OpenStackのセットアップには多量のパッケージをインターネ�
 
 ※ 最悪、勉強会時間内に作業が完了しない可能性があります。
 
+
 ## 必要なモノ
 
 * ノートPC(仮想化ソフトが使用可能なもの)
@@ -15,6 +16,7 @@ OpenStackのセットアップには多量のパッケージをインターネ�
     * KVM
     * VirtualBox など
 * インターネットアクセス環境
+
 
 ## 仮想マシンの設定
 
@@ -27,6 +29,7 @@ OpenStackのセットアップには多量のパッケージをインターネ�
     * ブリッジネットワークは「使わない」
     * 物理ホスト上の内部ネットワークとして構成してください。
 * OS:   Ubuntu Server 12.04.1 LTS http://www.ubuntu.com/download/server
+
 
 ## Ubuntuのインストール
 
@@ -72,9 +75,11 @@ OpenStackのセットアップには多量のパッケージをインターネ�
 
 http://www.ospn.jp/press/20120828no27-useit-oss.html
 
+
 ## インストール後の基本設定
 
 openstackユーザでログイン後、以下の設定を実行してください。
+
 
 ### アドレスの固定化
 
@@ -94,16 +99,19 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
     dns-nameservers 192.168.128.1
     ------------------------
 
+
 ### git のインストール
 
     $ sudo apt-get update
     $ sudo apt-get install -qqy git
+
 
 ## OpenStackの設定
 
 OpenStackの設定には、DevStackという開発者向けの簡易設定ツールを利用します。
 
 * DevStack: http://devstack.org
+
 
 ### DevStackのリポジトリ取得
 
@@ -115,6 +123,7 @@ OpenStackの設定には、DevStackという開発者向けの簡易設定ツー
     $ git branch
     * folsom
       master
+
 
 ### DevStackの設定
 
@@ -176,13 +185,24 @@ OpenStackの設定には、DevStackという開発者向けの簡易設定ツー
     This is your host ip: 192.168.128.100
     stack.sh completed in 1104 seconds.
 
+
 ### 動作確認
 
 ブラウザから仮想マシンのアドレス( http://192.168.128.100/ )へアクセスし、OpenStackのログイン画面が表示されるか確認してください。
 
+
 ### OpenStack停止時の注意
 
 OpenStack上で仮想マシンを作成した場合、OpenStack停止(Ubuntuの停止)前に仮想マシンを削除しておいてください。
+
+
+### おまけ作業
+
+特にやらなくても問題ないですが、以下のコマンドでlibvirtdの標準ネットワークを削除することで、解説中の状態把握が楽になります。
+
+    $ sudo virsh net-destroy default
+    $ sudo virsh net-undefine default
+
 
 ### Ubuntu再起動後の作業
 
