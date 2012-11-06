@@ -1,5 +1,7 @@
 # OpenStack勉強会 9回 事前準備
 
+* 11/6 23:00 一部手順を修正しました。既に作業済みで上手く行っている方はそのままで大丈夫です。
+
 勉強会に参加するにあたって、以下の作業を事前に行なってください。
 
 OpenStackのセットアップには多量のパッケージをインターネットからダウンロードするため、会場での設定作業は時間がかかってしまいます。
@@ -147,6 +149,12 @@ OpenStackの設定には、DevStackという開発者向けの簡易設定ツー
     HORIZON_BRANCH=stable/folsom
     CINDER_BRANCH=stable/folsom
     QUANTUM_BRANCH=stable/folsom
+    NOVACLIENT_BRANCH=2.9.0             # 2.9.0 21Sep2012: cdebf729b0
+    GLANCECLIENT_BRANCH=0.5.1           # 0.5.1 11Sep2012: 3f67c461da
+    KEYSTONECLIENT_BRANCH=a8f7879fcf    # 29Sep2012: a8f7879fcf
+    CINDERCLIENT_BRANCH=1.0.0           # 1.0.0 20Sep2012: 2e6be694c1
+    QUANTUM_CLIENT_BRANCH=3e19fc0a56    # 2.1 14Sep2012: bc7ba5e19d
+    NOVNC_BRANCH=8dfd916946             # 21Sep2012: 8dfd916946
     ------------------------
 
 * HOST_IP
