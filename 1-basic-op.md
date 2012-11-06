@@ -42,7 +42,7 @@ demoテナントを選択します。
 * ログの確認
     * ログに仮想マシンのユーザ、パスワードが表示されていますのでメモしておいてください。
 
-    ===== cloud-final: system completely up in 11.31 seconds ====
+    \===== cloud-final: system completely up in 11.31 seconds ====
       instance-id: i-00000001
       public-ipv4:
       local-ipv4 : 172.24.17.2
