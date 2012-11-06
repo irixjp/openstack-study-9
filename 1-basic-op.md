@@ -43,9 +43,10 @@ demoテナントを選択します。
     * ログに仮想マシンのユーザ、パスワードが表示されていますのでメモしておいてください。
 
 
-      instance-id: i-00000001
-      public-ipv4:
-      local-ipv4 : 172.24.17.2
+    instance-id: i-00000001
+    public-ipv4:
+    local-ipv4 : 172.24.17.2
+
     wget: server returned error: HTTP/1.1 404 Not Found
     cloud-userdata: failed to read user data url: http://169.254.169.254/2009-04-04/user-data
     WARN: /etc/rc3.d/S99-cloud-userdata failed
