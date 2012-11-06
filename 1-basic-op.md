@@ -39,7 +39,14 @@ demoテナントを選択します。
 
 これで仮想マシンが作成されます。
 
-* ログの確認
+    ubuntu$ sudo virsh list
+
+    Id Name                 State
+    ----------------------------------
+    1  instance-00000001    running
+
+
+#### ログの確認
 
 ログに仮想マシンのユーザ、パスワードが表示されていますのでメモしておいてください。
 
@@ -59,7 +66,9 @@ demoテナントを選択します。
     login as 'cirros' user. default password: 'cubswin:)'. use 'sudo' for root.
 
 
-* コンソールへの接続
+#### コンソールへの接続
+
+noVNCを使って仮想マシンのコンソールへアクセスできます。
 
 
 ### セキュリティの設定
@@ -67,7 +76,8 @@ demoテナントを選択します。
 このままでは作成した仮想マシンにアクセスできませんので、セキュリティを変更します。
 
     ubuntu$ ping 仮想マシンのアドレス
-    ubuntu$ ssh cirros
+    ubuntu$ ssh cirros@仮想マシンのアドレス
+
 
 * default ルールの編集
     * ssh
@@ -92,9 +102,10 @@ demoテナントを選択します。
         - CIDR
             - 0.0.0.0/0
 
+この設定することで仮想マシンへのアクセスが可能になります。
 
-Ubuntuサーバから以下のコマンドを実行します。
-
+    ubuntu$ ping 仮想マシンのアドレス
+    ubuntu$ ssh cirros@仮想マシンのアドレス
 
 
 
