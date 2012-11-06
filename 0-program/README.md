@@ -36,36 +36,41 @@
 
 
 ## 各コンポーネントの解説
-1. keystone
-    1. Keystoneのアーキテクチャ
-       1. テナント、ユーザ、ロール
-       2. 認証、トークン、エンドポイント
-    2. curlで直接APIを叩いてレスポンスを確認
 
-2. glance
-    1. Glanceのアーキテクチャ
-        1. glance-api
-        2. glance-registory
-    2. イメージの確認
-    3. スナップショットの確認
-3. cinder
+### keystone
+1. Keystoneのアーキテクチャ
+   1. テナント、ユーザ、ロール
+   2. 認証、トークン、エンドポイント
+2. curlで直接APIを叩いてレスポンスを確認
 
-4. quantum
-    1. quantumのアーキテクチャ
-        1. quantum-server
-        2. quantum-agent
-        3. quantum-dhcp
-        4. quantum-l3
-    2. ネットワークの作成
-    3. サブネットの作成
-    4. ルーターの作成
-    5. 複数セグメントの連結
 
-5. nova
-    1. novaのアーキテクチャ
-        1. nova-api
-        2. nova-scheduler
-        3. nova-cert,console,consoleauth
-        4. nova-compute
-    2. キューとDB
-    3. 仮想マシン作成の流れ
+### glance
+1. Glanceのアーキテクチャ
+    1. glance-api
+    2. glance-registory
+2. イメージの確認
+3. スナップショットの確認
+
+
+### cinder
+
+
+### quantum
+1. quantumのアーキテクチャ
+    1. quantum-server
+    2. quantum-agent
+    3. quantum-dhcp
+    4. quantum-l3
+2. ネットワークの作成
+3. サブネットの作成
+4. ルーターの作成
+5. 複数セグメントの連結
+
+### nova
+1. novaのアーキテクチャ
+    1. nova-api
+    2. nova-scheduler
+    3. nova-cert,console,consoleauth
+    4. nova-compute
+2. キューとDB
+3. 仮想マシン作成の流れ
