@@ -4,6 +4,8 @@
 
 OpenStackのセットアップには多量のパッケージをインターネットからダウンロードするため、会場での設定作業は時間がかかってしまいます。
 
+※ 最悪、勉強会時間内に作業が完了しない可能性があります。
+
 ## 必要なモノ
 
 * ノートPC(仮想化ソフトが使用可能なもの)
@@ -22,7 +24,7 @@ OpenStackのセットアップには多量のパッケージをインターネ�
 * NIC:  1個
     * ブリッジネットワークは「使わない」
     * 物理ホスト上の内部ネットワークとして構成してください。
-* OS:   Ubuntu Server 12.04 LTS http://www.ubuntu.com/download/server
+* OS:   Ubuntu Server 12.04.1 LTS http://www.ubuntu.com/download/server
 
 ## Ubuntuのインストール
 
@@ -76,7 +78,7 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
 
 ここで固定化するアドレスは以下の要件を満たす様に設定してください。
 * インターネットへアクセス可能
-* ホストマシンからssh/httpでのアクセスが可能
+* ホストマシンからSSH/HTTPでのアクセスが可能
 
 以下は設定の一例です。
 
@@ -95,21 +97,26 @@ openstackユーザでログイン後、以下の設定を実行してくださ�
     $ sudo apt-get update
     $ sudo apt-get install -qqy git
 
-## openstackの設定
+## OpenStackの設定
 
-openstackの設定には、devstackという開発者向けの簡易設定ツールを利用します。
+OpenStackの設定には、DevStackという開発者向けの簡易設定ツールを利用します。
 
-### devstackのリポジトリ取得
+* DevStack: http://devstack.org
+
+### DevStackのリポジトリ取得
 
     $ cd ~
     $ git clone https://github.com/openstack-dev/devstack.git
     $ cd ~/devstack
 
     $ git checkout -b folsom remotes/origin/stable/folsom
+    $ git branch
+    * folsom
+      master
 
-### devstackの設定
+### DevStackの設定
 
-~/devstack/localrc ファイルを作成して、devstackの設定を行います。
+~/devstack/localrc ファイルを作成して、DevStackの設定を行います。
 
     $ vi ~/devstack/localrc
     ------------------------
@@ -146,12 +153,12 @@ openstackの設定には、devstackという開発者向けの簡易設定ツー
     * 固定化したIPアドレスを指定します。
 
 
-### devstackの実行
+### DevStackの実行
 
     $ cd ~/devstack
     $ ./stack.sh
 
-正常に終了すると以下のメッセージが表示されます。
+正常に終了すると以下のメッセージ(例)が表示されます。
 
     Horizon is now available at http://192.168.128.100/
     Keystone is serving at http://192.168.128.100:5000/v2.0/
@@ -163,7 +170,7 @@ openstackの設定には、devstackという開発者向けの簡易設定ツー
 
 ### 動作確認
 
-ブラウザから仮想マシンのアドレスへアクセスし、OpenStackのログイン画面が表示されるか確認してください。
+ブラウザから仮想マシンのアドレス( http://192.168.128.100/ )へアクセスし、OpenStackのログイン画面が表示されるか確認してください。
 
 ### OpenStack停止時の注意
 
@@ -171,14 +178,14 @@ OpenStack上で仮想マシンを作成した場合、OpenStack停止(Ubuntuの�
 
 ### Ubuntu再起動後の作業
 
-devstackにはいくつか揮発性の設定が含まれているため、Ubuntuを再起動した場合、以下の設定を手動で行う必要があります。
+DevStackにはいくつか揮発性の設定が含まれているため、Ubuntuを再起動した場合、以下の設定を手動で行う必要があります。
 
     $ sudo ip addr add 10.0.0.1/24 dev br-ex
     $ sudo ip link set br-ex up
     $ sudo route add -net 172.24.17.0/24 gw 10.0.0.2
     $ sudo losetup -f --show /opt/stack/data/stack-volumes-backing-file
 
-Ubuntu再起動後にdevstackで作った環境を起動するには以下のコマンド実行します。
+Ubuntu再起動後にDevStackで作った環境を起動するには以下のコマンド実行します。
 
     $ cd ~/devstack
     $ ./rejoin-stack.sh
