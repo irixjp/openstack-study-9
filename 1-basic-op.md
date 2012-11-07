@@ -249,7 +249,7 @@ openstackコマンドラインを使うためにはいくつかの環境変数�
 
     OS_AUTH_URL=http://157.7.133.23:5000/v2.0
     OS_NO_CACHE=1
-    OS_PASSWORD=^openstack2012$
+    OS_PASSWORD=openstack
     OS_TENANT_NAME=demo
     OS_USERNAME=demo
 
