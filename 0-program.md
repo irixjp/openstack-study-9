@@ -25,6 +25,9 @@
 
 
 ## 基本的な使い方
+
+https://github.com/irixjp/openstack-study-9/blob/master/1-basic-op.md
+
 1. horizon経由
     1. ログイン
     2. ネットワークの作成
