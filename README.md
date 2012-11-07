@@ -9,4 +9,4 @@
 * [glance](https://github.com/irixjp/openstack-study-9/wiki/glance)
 * [cinder](https://github.com/irixjp/openstack-study-9/wiki/cinder)
 * [quantum](https://github.com/irixjp/openstack-study-9/wiki/quantum)
-* nova
+* [nova](https://github.com/irixjp/openstack-study-9/wiki/nova)
