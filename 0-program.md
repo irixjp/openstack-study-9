@@ -7,12 +7,13 @@
 |2|基本的な使い方|中島|60分|
 ||休憩|−|15分|
 |3|各コンポーネントの解説|−|時間切れまで|
-|3-1|keystone||30分|
-|3-2|glance||30分|
-|3-3|cinder||30分|
+|3-1|OpenStackコンポーネントの基本構造||15分|
+|3-2|keystone||30分|
+|3-3|glance||30分|
+|3-4|cinder||30分|
 ||休憩|−|15分|
-|3-4|quantum||60分|
-|3-5|nova||60分|
+|3-5|quantum||60分|
+|3-6|nova||60分|
 
 
 ## 当時までにやっておく作業
@@ -46,7 +47,11 @@ https://github.com/irixjp/openstack-study-9/blob/master/1-basic-op.md
 2. OpenStackのコマンド or Dashboard で操作
 3. Linux側での現象を確認
 
-という流れですすめる。
+という流れですすめます。
+
+
+### OpenStackコンポーネントの基本構造
+1. APIサーバとクライアントライブラリ
 
 
 ### keystone
