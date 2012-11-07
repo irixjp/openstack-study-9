@@ -1,4 +1,4 @@
-コンテンツはWiki側へ移行しました。
+# OpenStack 第9回勉強会 コンテンツ
 
 * [プログラム](https://github.com/irixjp/openstack-study-9/wiki)
 
